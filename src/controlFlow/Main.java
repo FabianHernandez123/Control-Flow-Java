@@ -99,11 +99,14 @@ public class Main {
 				String dummyVar = userInput.nextLine(); //So the input from the next question would save. 
 				System.out.println("Do you want to play again? (y/n) ");
 				String playAgain = userInput.nextLine();
-				if (playAgain.equalsIgnoreCase("y") || playAgain.equalsIgnoreCase("yes"))
+				if (playAgain.trim().equalsIgnoreCase("y") || playAgain.equalsIgnoreCase("yes")) {
 					continueVar = true;
+				}
 				else
+				{
 					System.out.println("Thank you for playing!");
-					continueVar = false;
+					continueVar = false; 
+				}
 				} while (continueVar);
 			} else { // anything other than y or yes response goes to exit
 			System.out.printf("Okay %s, please return later to complete the survey.\n", inputName);
