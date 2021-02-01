@@ -1,5 +1,6 @@
 package controlFlow;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner; 
 
@@ -30,7 +31,14 @@ public class Main {
 			boolean continueVar = true;
 			do {
 				System.out.println("What is your favorite pet's name?:");
-				String petName = userInput.nextLine();
+				String petName;
+				//while (!Character.isLetter(userInput.nextLine().trim().charAt(0)))
+				//	System.out.printf("Enter a string please!");
+				//	if (Character.isLetter(userInput.nextLine().trim().charAt(0)))
+				//		petName = userInput.nextLine(); 
+					
+				petName = userInput.nextLine();
+				
 				System.out.println("What is your favorite pet's age?: ");
 				String petAge_s = userInput.nextLine();
 				int petAge = Integer.parseInt(petAge_s);
@@ -73,10 +81,13 @@ public class Main {
 				int num4 = (int) actorName.charAt(0);
 				int num5 = 42; 
 				int[] numbers = {num1, num2, num3, num4, num5};
-				for (int number: numbers) {
-					if (number > 75)
-						number = number%75; 
+				for (int m=0; m<5; m++) {
+					if (numbers[m] > 75)
+						numbers[m] = numbers[m]%75; 
+					if (numbers[m]< 0)
+						numbers[m] = numbers[m]+75;
 				}
+				Arrays.sort(numbers);
 				String num_1 = Integer.toString(numbers[0]);
 				String num_2 = Integer.toString(numbers[1]);
 				String num_3 = Integer.toString(numbers[2]);
@@ -91,6 +102,7 @@ public class Main {
 				if (playAgain.equalsIgnoreCase("y") || playAgain.equalsIgnoreCase("yes"))
 					continueVar = true;
 				else
+					System.out.println("Thank you for playing!");
 					continueVar = false;
 				} while (continueVar);
 			} else { // anything other than y or yes response goes to exit
